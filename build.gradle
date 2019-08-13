@@ -1,0 +1,95 @@
+group 'com.learn'
+version '1.0-SNAPSHOT'
+
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+//apply plugin: 'scala'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+apply plugin: 'application'
+mainClassName = 'com.app.person.MyEmployeeApp' //For Testing Spring Data Mongo DB
+//mainClassName = 'com.app.file.FileApplication' //For Testing File Application.
+repositories {
+    mavenCentral()
+}
+
+//springBoot {
+//    mainClass = 'com.app.file.FileApplication'
+//    executable = true
+//    buildInfo()
+//}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-aop')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+    compile files('lib/algs4.jar')
+    compile files('/home/sunitc/Tools/jdk1.8.0_91/jre/lib/rt.jar')
+    compile "joda-time:joda-time:2.2"
+//    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: '1.4.3.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.4.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.json/json
+    compile group: 'org.json', name: 'json', version: '20160810'
+
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.5'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.5'
+
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17'
+//    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+//    compile("org.springframework.boot:spring-boot-starter-security")
+
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.3.RELEASE'
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+//    testCompile("org.springframework.security:spring-security-test")
+
+
+    //compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0.1'
+    compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
+
+    compile group:'com.fasterxml.jackson.dataformat', name:'jackson-dataformat-csv', version:'2.8.8'
+
+
+    // https://mvnrepository.com/artifact/org.jsoup/jsoup
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.11.2'
+
+//    compile 'org.glassfish.jersey.core:jersey-common:2.22.2'
+    compile group: 'biz.paluch.redis', name: 'lettuce', version: '4.4.4.Final'
+
+    // https://mvnrepository.com/artifact/redis.clients/jedis
+    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-pool2
+    compile group: 'org.apache.commons', name: 'commons-pool2', version: '2.5.0'
+
+
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.335'
+
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
+    compile group: 'org.javers', name: 'javers-core', version: '5.6.3'
+
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
+
+}
+
+
+jar {
+    baseName = 'java-pojo-apps'
+    version =  '1.0.0'
+}

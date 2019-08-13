@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<searchConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			 xsi:noNamespaceSchemaLocation="search-config.xsd">
+	<searchMeta resourceName="topic">
+		<sql-query>
+			<![CDATA[
+				SELECT category.categoryid,
+				       category.name,
+				       category_ext.topicnumber,
+				       category.parentcategoryid,
+				       parent_category.name,
+				       category.userid,
+				       category.username,
+				       category.createdate,
+				       category.modifieddate,
+				       category.lastpublishdate,
+				       NULL                      
+				FROM   AssetCategory category
+				       INNER JOIN asset_category_ext category_ext
+				               ON category_ext.categoryid = category.categoryid
+				       LEFT OUTER JOIN AssetCategory parent_category
+				                    ON parent_category.categoryid = category.parentcategoryid 
+				WHERE 1=1 
+			]]>
+		</sql-query>
+		<result-object className="com.adp.gckb.app.topic.model.TopicDTO">
+			<field index="1" fieldName="id"/>
+			<field index="2" fieldName="name"/>
+			<field index="3" fieldName="topicNumber"/>
+			<field index="4" fieldName="parentTopicId"/>
+			<field index="5" fieldName="parentTopicName"/>
+			<field index="6" fieldName="userId"/>
+			<field index="7" fieldName="userName"/>
+			<field index="8" fieldName="createdDate"/>
+			<field index="9" fieldName="modifiedDate"/>
+			<field index="10" fieldName="publishedDate"/>
+			<field index="11" fieldName="children"/>
+		</result-object>
+		<searchableField fieldName="name" tableAlias="category" dataType="STRING">
+			<operator>LIKE</operator>
+		</searchableField>
+		<searchableField fieldName="topicNumber" tableAlias="category_ext" dataType="STRING">
+			<operator>LIKE</operator>
+		</searchableField>
+		<searchableField fieldName="createDate" tableAlias="category" dataType="DATE">
+			<operator>GT</operator>
+			<operator>GTE</operator>
+			<operator>LT</operator>
+			<operator>LTE</operator>
+		</searchableField>
+		<searchableField fieldName="modifiedDate" tableAlias="category" dataType="DATE">
+			<operator>GT</operator>
+			<operator>GTE</operator>
+			<operator>LT</operator>
+			<operator>LTE</operator>
+		</searchableField>
+		<sortableField fieldName="name" tableAlias="category" />
+		<sortableField fieldName="topicNumber" tableAlias="category_ext" />
+		<sortableField fieldName="createDate" tableAlias="category" />
+		<sortableField fieldName="modifiedDate" tableAlias="category" />
+	</searchMeta>
+	<searchMeta resourceName="tag">
+		<sql-query>
+			<![CDATA[
+				SELECT tag.tagid,
+				       tag.name,
+				       tag.userid,
+				       tag.username,
+				       tag.assetcount,
+				       tag.createdate,
+				       tag.modifieddate,
+				       tag.lastpublishdate
+				FROM   AssetTag tag
+				WHERE  1 = 1 
+			]]>
+		</sql-query>
+		<result-object className="com.adp.gckb.app.tag.model.TagDTO">
+			<field index="1" fieldName="id"/>
+			<field index="2" fieldName="name"/>
+			<field index="3" fieldName="userId"/>
+			<field index="4" fieldName="userName"/>
+			<field index="5" fieldName="assetCount"/>
+			<field index="6" fieldName="createdDate"/>
+			<field index="7" fieldName="modifiedDate"/>
+			<field index="8" fieldName="publishedDate"/>
+		</result-object>
+		<searchableField fieldName="name" tableAlias="tag" dataType="STRING">
+			<operator>LIKE</operator>
+		</searchableField>
+		<searchableField fieldName="createDate" tableAlias="tag" dataType="DATE">
+			<operator>GT</operator>
+			<operator>GTE</operator>
+			<operator>LT</operator>
+			<operator>LTE</operator>
+		</searchableField>
+		<searchableField fieldName="modifiedDate" tableAlias="tag" dataType="DATE">
+			<operator>GT</operator>
+			<operator>GTE</operator>
+			<operator>LT</operator>
+			<operator>LTE</operator>
+		</searchableField>
+		<sortableField fieldName="name" tableAlias="tag" />
+		<sortableField fieldName="createDate" tableAlias="tag" />
+		<sortableField fieldName="modifiedDate" tableAlias="tag" />
+	</searchMeta>
+</searchConfig>

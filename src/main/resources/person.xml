@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<person firstName = "Sunit" lastName = "Chatterjee">
+	<id>10001</id>
+	<modelClass>com.liferay.asset.kernel.model.AssetCategory</modelClass>
+	<emailAddress>sunit.chatterjee@digitalcues.com</emailAddress>
+	<jobs>
+		<company>Saba</company>
+		<designation>Senior Technical Lead</designation>
+		<tenure>9 years</tenure>
+
+	</jobs>
+	<jobs>
+		<company>Digital Cues</company>
+		<designation>Senior Technical Lead</designation>
+		<tenure>1.9 years</tenure>
+
+	</jobs>
+</person>

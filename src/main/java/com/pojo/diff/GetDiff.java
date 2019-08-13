@@ -15,11 +15,31 @@ import java.util.List;
 /*
 Requires Libraries
 
-compile group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
     compile group: 'org.javers', name: 'javers-core', version: '5.6.3'
-
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
-    
+
+
+Sample Output of Program
+
+Diff:
+* changes on com.pojo.diff.DummyObject/ :
+  - 'launchDate' value changed from '' to '15 Dec 2019'
+  - 'productName' value changed from 'Apple earpod' to 'Apple earpod v2.0'
+
+
+
+******** Apache Commons 3 Generic Diff ***********
+	productName : Apple earpod -> Apple earpod v2.0
+	launchDate : null -> 2019-12-15
+
+
+******** Apache Commons 3 Diff with Custom Field Names ***********
+	Product Name : Apple earpod -> Apple earpod v2.0
+	Launch Date : null -> 2019-12-15
+
+
+
  */
 public class GetDiff {
 

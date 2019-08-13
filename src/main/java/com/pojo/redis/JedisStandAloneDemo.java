@@ -1,6 +1,5 @@
-package com.app.redis;
+package com.pojo.redis;
 
-import com.lambdaworks.redis.RedisURI;
 import org.apache.commons.lang.SerializationUtils;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -8,13 +7,9 @@ import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.Protocol;
 
 import java.io.Serializable;
-import java.net.URI;
 import java.util.List;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by sunitc on 4/17/18.

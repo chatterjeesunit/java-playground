@@ -1,4 +1,4 @@
-package com.app.redis;
+package com.pojo.redis;
 
 import com.lambdaworks.redis.LettuceFutures;
 import com.lambdaworks.redis.RedisClient;
@@ -15,7 +15,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.concurrent.TimeUnit;

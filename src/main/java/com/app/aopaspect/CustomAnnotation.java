@@ -1,4 +1,4 @@
-package com.app.person.annotation;
+package com.app.aopaspect;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,9 +10,7 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface CustomPermissionChecker {
+public @interface CustomAnnotation {
 
-    String className();
-
-    String permissionList();
+    String beanName();
 }

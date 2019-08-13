@@ -9,10 +9,10 @@ http://www.springframework.org/schema/context
        default-init-method="init" default-destroy-method="destroy">
 
 
-    <context:component-scan base-package="com.app.person" annotation-config="true"/>
+    <context:component-scan base-package="com.app.aopaspect" annotation-config="true"/>
 
-    <bean id="eventPublisher" class="com.app.person.demo.TestEventPublisher"/>
+    <bean id="eventPublisher" class="com.app.aopaspect.demo.TestEventPublisher"/>
 
-    <bean id="eventListenerOne" class="com.app.person.demo.MyTestEventListenerOne"/>
+    <bean id="eventListenerOne" class="com.app.aopaspect.demo.MyTestEventListenerOne"/>
 
 </beans>

@@ -1,4 +1,4 @@
-package com.app.redis;
+package com.pojo.redis;
 
 import java.io.Serializable;
 

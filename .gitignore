@@ -6,4 +6,4 @@ gradle/
 *.iws
 *.ips
 out/
-
+*.ipr

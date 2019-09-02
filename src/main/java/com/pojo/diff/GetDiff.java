@@ -1,6 +1,5 @@
 package com.pojo.diff;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.apache.commons.lang3.builder.DiffBuilder;
@@ -10,8 +9,8 @@ import org.javers.core.JaversBuilder;
 import org.javers.core.diff.Diff;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Optional;
 
 /*
@@ -59,12 +58,21 @@ public class GetDiff {
         DiffBuilder diffBuilder =  new DiffBuilder(d1, d2, ToStringStyle.SHORT_PREFIX_STYLE);
         for(int i = 0; i < fields.length; i++) {
             Field field = fields[i];
-            String fieldName = Optional.ofNullable(field.getAnnotation(SerializedName.class)).map(SerializedName::value).orElse(field.getName());
+            boolean modifierChanged = false;
+            if(Modifier.isPrivate(field.getModifiers())) {
+                field.setAccessible(true);
+                modifierChanged = true;
+            }
+            String fieldName = Optional.ofNullable(field.getAnnotation(SerializedName.class)).map(SerializedName::name).orElse(field.getName());
             ((DiffBuilder) diffBuilder).append(fieldName, field.get(d1), field.get(d2));
+            if(modifierChanged) {
+                field.setAccessible(false);
+            }
         }
         ((DiffBuilder) diffBuilder).build().getDiffs().forEach( diff -> {
             System.out.println("\t" + diff.getFieldName() + " : " + diff.getLeft() + " -> " + diff.getRight());
         });
+
     }
 
     private static void getDiffUsingJavers(DummyObject d1, DummyObject d2) {
@@ -81,11 +89,11 @@ public class GetDiff {
 @AllArgsConstructor
 class DummyObject {
 
-    @SerializedName("Product Name")
-    String productName;
+    @SerializedName(name = "Product Name")
+    private String productName;
 
-    LocalDate launchDate;
+    private LocalDate launchDate;
 
-    @SerializedName("Price")
-    double price;
+    @SerializedName(name = "Price")
+    private double price;
 }

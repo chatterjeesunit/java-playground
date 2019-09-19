@@ -16,6 +16,8 @@ public class PolymorphicDeserializationUsingClass {
 
         String json = "[" +
                 "{\"name\":\"Ferrari\",\"type\":\"CAR\",\"sunRoof\":false}," +
+                "{\"name\":\"Volvo\",\"type\":\"BUS\"}," +
+                "{\"name\":\"Tata\",\"type\":\"TRUCK\"}," +
                 "{\"name\":\"Boeing 750\",\"type\":\"PLANE\",\"wingspan\":19.25}" +
                 "]";
 
@@ -30,7 +32,9 @@ public class PolymorphicDeserializationUsingClass {
 
 enum VehicleType {
     CAR,
-    PLANE
+    PLANE,
+    BUS,
+    TRUCK
 }
 
 
@@ -42,6 +46,8 @@ enum VehicleType {
 @JsonSubTypes( {
         @JsonSubTypes.Type(value = Car.class, name = "CAR"),
         @JsonSubTypes.Type(value = Plane.class, name = "PLANE"),
+        @JsonSubTypes.Type(value = Vehicle.class, name = "BUS"),
+        @JsonSubTypes.Type(value = Vehicle.class, name = "TRUCK")
 })
 @NoArgsConstructor
 @AllArgsConstructor

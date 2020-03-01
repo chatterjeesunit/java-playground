@@ -72,6 +72,8 @@ dependencies {
 
     compile group: 'com.google.guava', name: 'guava', version: '28.1-jre'
 
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+
 }
 
 

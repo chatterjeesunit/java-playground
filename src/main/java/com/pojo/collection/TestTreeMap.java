@@ -19,15 +19,12 @@ public class TestTreeMap {
                 new TestObject(111L, LocalDate.now()), "Dummy02"
         );
 
-        Comparator<TestObject> comparator1 = new Comparator<TestObject>() {
-            @Override
-            public int compare(TestObject o1, TestObject o2) {
-                int cmp = o1.getDate().compareTo(o2.getDate());
+        Comparator<TestObject> comparator1 = (o1, o2) -> {
+            int cmp = o1.getDate().compareTo(o2.getDate());
 
-                if(cmp == 0) return o1.getId().compareTo(o2.getId());
+            if(cmp == 0) return o1.getId().compareTo(o2.getId());
 
-                return cmp;
-            }
+            return cmp;
         };
 
         Comparator<TestObject> comparator2 = Comparator.comparing(TestObject::getDate);

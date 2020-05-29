@@ -64,12 +64,12 @@ public class GetDiff {
                 modifierChanged = true;
             }
             String fieldName = Optional.ofNullable(field.getAnnotation(SerializedName.class)).map(SerializedName::name).orElse(field.getName());
-            ((DiffBuilder) diffBuilder).append(fieldName, field.get(d1), field.get(d2));
+            diffBuilder.append(fieldName, field.get(d1), field.get(d2));
             if(modifierChanged) {
                 field.setAccessible(false);
             }
         }
-        ((DiffBuilder) diffBuilder).build().getDiffs().forEach( diff -> {
+        diffBuilder.build().getDiffs().forEach(diff -> {
             System.out.println("\t" + diff.getFieldName() + " : " + diff.getLeft() + " -> " + diff.getRight());
         });
 

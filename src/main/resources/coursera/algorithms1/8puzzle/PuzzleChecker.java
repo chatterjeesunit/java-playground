@@ -1,7 +1,7 @@
 /******************************************************************************
  *  Compilation:  javac PuzzleChecker.java
  *  Execution:    java PuzzleChecker filename1.txt filename2.txt ...
- *  Dependencies: com.coursera.algorithms1.week4a.assignment.Board.java com.coursera.algorithms1.week4a.assignment.Solver.java
+ *  Dependencies: com.play.algorithms1.week4a.assignment.Board.java com.play.algorithms1.week4a.assignment.Solver.java
  *
  *  This program creates an initial board from each filename specified
  *  on the command line and finds the minimum number of moves to
@@ -25,8 +25,8 @@
  *
  ******************************************************************************/
 
-import com.coursera.algorithms1.week4a.assignment.Board;
-import com.coursera.algorithms1.week4a.assignment.Solver;
+import com.play.coursera.algorithmsOne.week4a.assignment.Board;
+import com.play.coursera.algorithmsOne.week4a.assignment.Solver;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 

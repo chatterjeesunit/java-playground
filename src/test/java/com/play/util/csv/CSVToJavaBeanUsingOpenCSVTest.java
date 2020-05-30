@@ -72,9 +72,9 @@ class CSVToJavaBeanUsingOpenCSVTest {
 
         CSVToJavaBeanUsingOpenCSV<ProductOne> converter =
                 new CSVToJavaBeanUsingOpenCSV<>(
-                        "csv/product-sample-2.csv", ',', ProductOne.class, columnMappings);
+                        "csv/product-sample-2.csv", ',', ProductOne.class);
 
-        List<ProductOne> results = converter.convert();
+        List<ProductOne> results = converter.convert(columnMappings);
 
         assertThat(results.size()).isEqualTo(3);
 
@@ -104,10 +104,10 @@ class CSVToJavaBeanUsingOpenCSVTest {
 
         CSVToJavaBeanUsingOpenCSV<ProductOne> converter =
                 new CSVToJavaBeanUsingOpenCSV<>(
-                        "csv/product-sample-3.csv", ',', ProductOne.class, columnMappings);
+                        "csv/product-sample-3.csv", ',', ProductOne.class);
 
 
-        Assertions.assertThrows(RuntimeException.class, () -> converter.convert());
+        Assertions.assertThrows(RuntimeException.class, () -> converter.convert(columnMappings));
     }
 
     @Test

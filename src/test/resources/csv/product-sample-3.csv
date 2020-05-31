@@ -1,4 +1,4 @@
 uniq_id,crawl_timestamp,product_name,retail_price,discounted_price,images,brand
-1000,2016-03-25 21:59:23 +0000,FabHomeDecor Fabric Double Sofa Bed,32157,22646,"[""http://image1.jpg"", ""http://image2.jpg"", ""http://image3.jpg""]",FabHomeDecor
+1000,2016-03-25 21:59:23 +0000,Double Sofa Bed,32157,22646,"[""http://image1.jpg"", ""http://image2.jpg""]",FabHomeDecor
 1001,2016-03-26 22:59:23 +0000,AW Bellies,999,499,"[""http://image4.jpg""]",AW
-1002,2016-03-27 23:59:23 +0000,Alisha Solid Women's Cycling Shorts,699,267,[],Alisha
+1002,2016-03-27 23:59:23 +0000,Women's Cycling Shorts,699,267,[],Alisha

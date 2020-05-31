@@ -27,9 +27,9 @@ class CsvToBeanWithCsvMapperTest {
         assertThat(results)
                 .extracting("id", "name", "retailPrice", "discountedPrice", "brand")
                 .containsExactlyInAnyOrder(
-                        tuple("1000", "FabHomeDecor Fabric Double Sofa Bed",	BigDecimal.valueOf(32157),	BigDecimal.valueOf(22646), "FabHomeDecor"),
+                        tuple("1000", "Double Sofa Bed",	BigDecimal.valueOf(32157),	BigDecimal.valueOf(22646), "FabHomeDecor"),
                         tuple("1001", "AW Bellies",	BigDecimal.valueOf(999), BigDecimal.valueOf(499), "AW"),
-                        tuple("1002", "Alisha Solid Women's Cycling Shorts", BigDecimal.valueOf(699), BigDecimal.valueOf(267), "Alisha")
+                        tuple("1002", "Women's Cycling Shorts", BigDecimal.valueOf(699), BigDecimal.valueOf(267), "Alisha")
                 );
 
     }

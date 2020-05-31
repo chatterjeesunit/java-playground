@@ -7,13 +7,17 @@ import com.opencsv.bean.HeaderColumnNameTranslateMappingStrategy;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * Created by sunitc on 30 May 2020.
  *
- * Check Test - CsvToBeanWithCsvMapperTest.java, for more details on how to use this class.
+ * Check Test - CsvToBeanWithCsvMapperTest.java, for more details on how to use this class and creating converters, etc
+ *
+ * To understand how this works check out this blog - https://developerpod.com/2020/05/31/read-csv-file-to-java-bean-using-open-csv/
  */
 
 public class CSVToJavaBeanUsingOpenCSV<T> {
@@ -34,9 +38,16 @@ public class CSVToJavaBeanUsingOpenCSV<T> {
                 .withType(targetClass)
                 .withSeparator(csvSeperator)
                 .withIgnoreLeadingWhiteSpace(true)
+                .withIgnoreEmptyLine(true)
                 .build();
 
         List<T> results = csvReader.parse();
+
+        Iterator<T> iterator = csvReader.iterator();
+
+        Stream<T> stream = csvReader.stream();
+
+
         return results;
     }
 
@@ -51,6 +62,7 @@ public class CSVToJavaBeanUsingOpenCSV<T> {
                 .withType(targetClass)
                 .withSeparator(csvSeperator)
                 .withIgnoreLeadingWhiteSpace(true)
+                .withIgnoreEmptyLine(true)
                 .withMappingStrategy(mappingStrategy)
                 .build();
 

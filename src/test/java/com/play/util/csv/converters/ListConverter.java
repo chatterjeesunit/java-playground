@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 import java.io.IOException;
 import java.util.List;
 
-public @NoArgsConstructor
-class ListConverter extends AbstractBeanField {
+@NoArgsConstructor
+public class ListConverter extends AbstractBeanField {
 
     @Override
     protected Object convert(String value) throws CsvDataTypeMismatchException, CsvConstraintViolationException {

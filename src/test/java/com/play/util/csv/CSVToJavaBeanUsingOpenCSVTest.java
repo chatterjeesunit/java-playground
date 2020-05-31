@@ -30,9 +30,9 @@ class CSVToJavaBeanUsingOpenCSVTest {
         assertThat(results)
                 .extracting("id", "name", "retailPrice", "discountedPrice", "brand")
                 .containsExactlyInAnyOrder(
-                        tuple("1000", "FabHomeDecor Fabric Double Sofa Bed",	BigDecimal.valueOf(32157),	BigDecimal.valueOf(22646), "FabHomeDecor"),
+                        tuple("1000", "Double Sofa Bed",	BigDecimal.valueOf(32157),	BigDecimal.valueOf(22646), "FabHomeDecor"),
                         tuple("1001", "AW Bellies",	BigDecimal.valueOf(999), BigDecimal.valueOf(499), "AW"),
-                        tuple("1002", "Alisha Solid Women's Cycling Shorts", BigDecimal.valueOf(699), BigDecimal.valueOf(267), "Alisha")
+                        tuple("1002", "Women's Cycling Shorts", BigDecimal.valueOf(699), BigDecimal.valueOf(267), "Alisha")
                 );
     }
 
@@ -81,9 +81,9 @@ class CSVToJavaBeanUsingOpenCSVTest {
         assertThat(results)
                 .extracting("id", "name", "retailPrice", "discountedPrice", "brand")
                 .containsExactlyInAnyOrder(
-                        tuple("1000", "FabHomeDecor Fabric Double Sofa Bed",	BigDecimal.valueOf(32157),	BigDecimal.valueOf(22646), "FabHomeDecor"),
+                        tuple("1000", "Double Sofa Bed",	BigDecimal.valueOf(32157),	BigDecimal.valueOf(22646), "FabHomeDecor"),
                         tuple("1001", "AW Bellies",	BigDecimal.valueOf(999), BigDecimal.valueOf(499), "AW"),
-                        tuple("1002", "Alisha Solid Women's Cycling Shorts", BigDecimal.valueOf(699), BigDecimal.valueOf(267), "Alisha")
+                        tuple("1002", "Women's Cycling Shorts", BigDecimal.valueOf(699), BigDecimal.valueOf(267), "Alisha")
                 );
     }
 
@@ -127,17 +127,17 @@ class CSVToJavaBeanUsingOpenCSVTest {
         assertThat(results)
                 .extracting("id", "name", "retailPrice", "discountedPrice", "brand", "addedOn", "images")
                 .containsExactlyInAnyOrder(
-                        tuple("1000", "FabHomeDecor Fabric Double Sofa Bed",
+                        tuple("1000", "Double Sofa Bed",
                             BigDecimal.valueOf(32157),	BigDecimal.valueOf(22646),
                             "FabHomeDecor",
                             ZonedDateTime.of(LocalDateTime.of(2016, 03, 25, 21, 59, 23), zoneId),
-                            List.of("http://image1.jpg", "http://image2.jpg", "http://image3.jpg")),
+                            List.of("http://image1.jpg", "http://image2.jpg")),
 
                         tuple("1001", "AW Bellies",	BigDecimal.valueOf(999), BigDecimal.valueOf(499), "AW",
                             ZonedDateTime.of(LocalDateTime.of(2016, 03, 26, 22, 59, 23), zoneId),
                             List.of("http://image4.jpg")),
 
-                        tuple("1002", "Alisha Solid Women's Cycling Shorts", BigDecimal.valueOf(699), BigDecimal.valueOf(267), "Alisha",
+                        tuple("1002", "Women's Cycling Shorts", BigDecimal.valueOf(699), BigDecimal.valueOf(267), "Alisha",
                             ZonedDateTime.of(LocalDateTime.of(2016, 03, 27, 23, 59, 23), zoneId),
                             List.of())
                 );

@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
-public @NoArgsConstructor
-class ZoneDateTimeConverter extends AbstractBeanField {
+@NoArgsConstructor
+public class ZoneDateTimeConverter extends AbstractBeanField {
 
     @Override
     protected Object convert(String value) throws CsvDataTypeMismatchException, CsvConstraintViolationException {

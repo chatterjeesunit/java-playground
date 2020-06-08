@@ -116,8 +116,9 @@ public class FastCollinearPoints {
 
     public static void main(String[] args) {
 
+        final String file = FastCollinearPoints.class.getClassLoader().getResource("coursera/algorithms1/collinear/rs1423.txt").getFile();
         // read the n points from a file
-        In in = new In("/datadrive/learn/Projects/java-pojo-apps/src/main/resources/coursera.algorithms1.collinear/rs1423.txt");
+        In in = new In(file);
 //        In in = new In(args[0]);
         int n = in.readInt();
         Point[] points = new Point[n];

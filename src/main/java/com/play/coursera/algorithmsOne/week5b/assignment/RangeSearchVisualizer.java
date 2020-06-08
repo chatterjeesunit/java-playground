@@ -21,8 +21,8 @@ public class RangeSearchVisualizer {
 
     public static void main(String[] args) {
 
-        String filename = "/datadrive/learn/Projects/java-pojo-apps/src/main/resources/coursera/algorithms1/kdtree/input.txt";
-        In in = new In(filename);
+        final String file = RangeSearchVisualizer.class.getClassLoader().getResource("coursera/algorithms1/kdtree/input.txt").getFile();
+        In in = new In(file);
 
         StdDraw.enableDoubleBuffering();
 

@@ -76,9 +76,10 @@ public class BruteCollinearPoints {
 
     public static void main(String[] args) {
 
+        final String file = BruteCollinearPoints.class.getClassLoader().getResource("coursera/algorithms1/collinear/input20.txt").getFile();
         // read the n points from a file
-//        In in = new In("/datadrive/learn/Projects/java-pojo-apps/src/main/java/coursera.algorithms1.collinear/input20.txt");
-        In in = new In(args[0]);
+        In in = new In(file);
+        // read the n points from a file
         int n = in.readInt();
         Point[] points = new Point[n];
         for (int i = 0; i < n; i++) {

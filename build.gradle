@@ -25,7 +25,7 @@ repositories {
 
 dependencies {
     compile files('lib/algs4.jar')
-    compile files('/home/sunitc/Tools/jdk1.8.0_91/jre/lib/rt.jar')
+//    compile files('/home/sunitc/Tools/jdk1.8.0_91/jre/lib/rt.jar')
     compile "joda-time:joda-time:2.2"
     compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.4.RELEASE'
 
@@ -79,7 +79,7 @@ dependencies {
 
 
 jar {
-    baseName = 'java-pojo-apps'
+    baseName = 'java-playground'
     version =  '1.0.0'
 }
 

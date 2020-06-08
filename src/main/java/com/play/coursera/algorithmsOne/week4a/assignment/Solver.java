@@ -48,10 +48,9 @@ public class Solver {
     // solve a slider puzzle (given below)
     public static void main(String[] args) {
 
+        final String file = Solver.class.getClassLoader().getResource("coursera/algorithms1/8puzzle/puzzle07.txt").getFile();
 //        // create initial board from file
-        String path =
-                "/datadrive/learn/Projects/java-pojo-apps/src/main/resources/coursera/algorithms1/8puzzle/puzzle07.txt";
-        In in = new In(path);
+        In in = new In(file);
 //        In in = new In(args[0]);
         int n = in.readInt();
         int[][] blocks = new int[n][n];

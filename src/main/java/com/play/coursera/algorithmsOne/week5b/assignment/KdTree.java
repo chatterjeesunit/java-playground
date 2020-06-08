@@ -1,10 +1,6 @@
 package com.play.coursera.algorithmsOne.week5b.assignment;
 
-import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.Point2D;
-import edu.princeton.cs.algs4.Queue;
-import edu.princeton.cs.algs4.RectHV;
-import edu.princeton.cs.algs4.StdDraw;
+import edu.princeton.cs.algs4.*;
 
 import java.util.Iterator;
 import java.util.Optional;
@@ -322,8 +318,8 @@ public class KdTree {
 //
 //        StdDraw.show();
 
-        String filename = "/datadrive/learn/Projects/java-pojo-apps/src/main/resources/coursera/algorithms1/kdtree/input.txt";
-        In in = new In(filename);
+        final String file = KdTree.class.getClassLoader().getResource("coursera/algorithms1/kdtree/input.txt").getFile();
+        In in = new In(file);
         // initialize the data structures with N points from standard input
         KdTree kdtree = new KdTree();
         while (!in.isEmpty()) {

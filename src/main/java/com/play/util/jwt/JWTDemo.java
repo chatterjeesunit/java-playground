@@ -12,12 +12,16 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ * Code for the blog - https://developerpod.com/2020/08/17/working-with-jwt-json-web-tokens/#toc
+ */
 public class JWTDemo {
 
 
     public String createJWT(String issuer, String secret, String subject, long timeToLiveInSeconds) {
 
-        String s = Jwts.builder()
+        String jwt =
+            Jwts.builder()
                 .setId(UUID.randomUUID().toString())
                 .setSubject(subject)
                 .setIssuer(issuer)
@@ -29,9 +33,9 @@ public class JWTDemo {
                 .signWith(getSecretKey(secret))
                 .compact();
 
-        System.out.println(s);
+        System.out.println(jwt);
 
-        return s;
+        return jwt;
     }
 
 

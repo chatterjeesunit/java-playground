@@ -52,9 +52,9 @@ dependencies {
     runtime 'io.jsonwebtoken:jjwt-impl:0.11.2'
     runtime 'io.jsonwebtoken:jjwt-jackson:0.11.2'
     // Uncomment the next line if you want to use RSASSA-PSS (PS256, PS384, PS512) algorithms:
-    //runtime 'org.bouncycastle:bcprov-jdk15on:1.60',
+    //runtime 'org.bouncycastle:bcprov-jdk15on:1.60'
     // Uncomment below line if you want to use gson
-    //runtime'io.jsonwebtoken:jjwt-gson:0.11.2'
+    //runtime 'io.jsonwebtoken:jjwt-gson:0.11.2'
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.5.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'

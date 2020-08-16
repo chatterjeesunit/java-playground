@@ -10,14 +10,15 @@ import java.io.UnsupportedEncodingException;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Date;
+import java.util.UUID;
 
 public class JWTDemo {
 
 
-    public String createJWT(String id, String issuer, String secret, String subject, long timeToLiveInSeconds) {
+    public String createJWT(String issuer, String secret, String subject, long timeToLiveInSeconds) {
 
         String s = Jwts.builder()
-                .setId(id)
+                .setId(UUID.randomUUID().toString())
                 .setSubject(subject)
                 .setIssuer(issuer)
                 .setIssuedAt(Date.from(Instant.now()))

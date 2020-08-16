@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -17,13 +18,14 @@ class JWTDemoTest {
 
     @Nested
     class JWTCreationTests {
+
         @Test
         void shouldThrowWeakKeyExceptionIfCreatingJWTwithSecretOfSmallSize() {
 
             JWTDemo demo = new JWTDemo();
 
             assertThrows(WeakKeyException.class,
-                    () -> demo.createJWT("12345", "Demo App",
+                    () -> demo.createJWT("Demo App",
                             "dummySecret", "sunit@gmail.com",
                             1000));
         }
@@ -33,7 +35,7 @@ class JWTDemoTest {
 
             JWTDemo demo = new JWTDemo();
 
-            String jwt = demo.createJWT("12345", "Demo App",
+            String jwt = demo.createJWT("Demo App",
                     "9aaa4aba-6c85-4524-a72a-1021caf2e025",
                     "sunit@gmail.com",
                    1);
@@ -43,14 +45,26 @@ class JWTDemoTest {
             String[] jwtParts = jwt.split("\\.");
 
             assertEquals(3, jwtParts.length, "JWT Should contain 3 parts separated by dot");
+        }
 
+        @Test
+        void shouldGenerateDifferentJWTIdEachTime() {
+            final String SECRET_KEY = "9aaa4aba-6c85-4524-a72a-1021caf2e025";
+            JWTDemo demo = new JWTDemo();
+
+            String jwt1 = demo.createJWT("Demo App", SECRET_KEY, "sunit@gmail.com", 1);
+            String jwt2 = demo.createJWT("Demo App", SECRET_KEY, "sunit@gmail.com", 1);
+
+            String jti1 = demo.parseJWT(jwt1, SECRET_KEY).getId();
+            String jti2 = demo.parseJWT(jwt2, SECRET_KEY).getId();
+            assertNotEquals(jti1, jti2);
         }
     }
 
     @Nested
     class JWTParsingTest{
 
-        final String VALID_JWT_WITH_1000_YR_EXPIRY = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMjM0NSIsInN1YiI6InN1bml0QGdtYWlsLmNvbSIsImlzcyI6IkRlbW8gQXBwIiwiaWF0IjoxNTk3NTk0NTI0LCJleHAiOjEwMjM3NTA4MTI0LCJmaXJzdE5hbWUiOiJTdW5pdCIsImxhc3ROYW1lIjoiQ2hhdHRlcmplZSIsImlzQWRtaW4iOnRydWV9.fM0St7WEj4gkbD3iGfZgrfRBjZ0PJ0MRb8w6vl8nhL0";
+        final String VALID_JWT_WITH_LONG_EXPIRY = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4ZWY2ZGU5MC1hMzljLTRhMjgtOTBmYy0xY2MyZmViZjFhMzciLCJzdWIiOiJzdW5pdEBnbWFpbC5jb20iLCJpc3MiOiJEZW1vIEFwcCIsImlhdCI6MTU5NzYwNDYwNywiZXhwIjoxMDIzNzUxODIwNywiZmlyc3ROYW1lIjoiU3VuaXQiLCJsYXN0TmFtZSI6IkNoYXR0ZXJqZWUiLCJpc0FkbWluIjp0cnVlfQ.VvvfRsZ75erZ6-k1-BeAI3IS6yXCM_3p5jSsxPCFkfI";
         final String VALID_SIGNING_KEY = "9aaa4aba-6c85-4524-a72a-1021caf2e025";
 
 
@@ -59,9 +73,8 @@ class JWTDemoTest {
         void shouldMatchClaimsSetInJWT() {
             JWTDemo demo = new JWTDemo();
 
-            Claims claims = demo.parseJWT(VALID_JWT_WITH_1000_YR_EXPIRY, VALID_SIGNING_KEY);
+            Claims claims = demo.parseJWT(VALID_JWT_WITH_LONG_EXPIRY, VALID_SIGNING_KEY);
 
-            assertEquals("12345", claims.getId());
             assertEquals("Demo App", claims.getIssuer());
             assertEquals("sunit@gmail.com", claims.getSubject());
             assertEquals("Sunit", claims.get("firstName", String.class));
@@ -73,8 +86,8 @@ class JWTDemoTest {
     @Nested
     class JWTParsingErrorTests {
 
-        final String VALID_JWT_WITH_1000_YR_EXPIRY = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMjM0NSIsInN1YiI6InN1bml0QGdtYWlsLmNvbSIsImlzcyI6IkRlbW8gQXBwIiwiaWF0IjoxNTk3NTkxMzg0LCJleHAiOjE1OTc1OTEzODQsImZpcnN0TmFtZSI6IlN1bml0IiwibGFzdE5hbWUiOiJDaGF0dGVyamVlIiwiaXNBZG1pbiI6dHJ1ZX0.Yz258ku-73Ie6D-zfXsqPZQo_A25jmPSwRdVvZQEE4g";
-        final String EXPIRED_JWT = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMjM0NSIsInN1YiI6InN1bml0QGdtYWlsLmNvbSIsImlzcyI6IkRlbW8gQXBwIiwiaWF0IjoxNTk3NTk0NzExLCJleHAiOjE1OTc1OTQ3MTIsImZpcnN0TmFtZSI6IlN1bml0IiwibGFzdE5hbWUiOiJDaGF0dGVyamVlIiwiaXNBZG1pbiI6dHJ1ZX0.u9KpaIm4a4eis-IhMijdvfQYGrvDE_do9IMHtAFnSI8";
+        final String VALID_JWT_WITH_LONG_EXPIRY = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4ZWY2ZGU5MC1hMzljLTRhMjgtOTBmYy0xY2MyZmViZjFhMzciLCJzdWIiOiJzdW5pdEBnbWFpbC5jb20iLCJpc3MiOiJEZW1vIEFwcCIsImlhdCI6MTU5NzYwNDYwNywiZXhwIjoxMDIzNzUxODIwNywiZmlyc3ROYW1lIjoiU3VuaXQiLCJsYXN0TmFtZSI6IkNoYXR0ZXJqZWUiLCJpc0FkbWluIjp0cnVlfQ.VvvfRsZ75erZ6-k1-BeAI3IS6yXCM_3p5jSsxPCFkfI";
+        final String EXPIRED_JWT = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2ZmU0ZTUwNC04NDg1LTQ0ZTgtOTM0ZC01ZTFhYzVhYjRlNDMiLCJzdWIiOiJzdW5pdEBnbWFpbC5jb20iLCJpc3MiOiJEZW1vIEFwcCIsImlhdCI6MTU5NzYwNDU1MSwiZXhwIjoxNTk3NjA0NTUyLCJmaXJzdE5hbWUiOiJTdW5pdCIsImxhc3ROYW1lIjoiQ2hhdHRlcmplZSIsImlzQWRtaW4iOnRydWV9.6aOy5pEpHd5VY3i3p6JfysZzZdp0VEH0QiSsK2QtPLU";
         final String VALID_SIGNING_KEY = "9aaa4aba-6c85-4524-a72a-1021caf2e025";
 
         @Test
@@ -82,7 +95,7 @@ class JWTDemoTest {
             JWTDemo demo = new JWTDemo();
 
             assertThrows(SignatureException.class,
-                    () -> demo.parseJWT( VALID_JWT_WITH_1000_YR_EXPIRY, "9aaa4aba-6c85-4524-a72a-1021caf2e02"));
+                    () -> demo.parseJWT(VALID_JWT_WITH_LONG_EXPIRY, "9aaa4aba-6c85-4524-a72a-1021caf2e02"));
         }
 
         @Test

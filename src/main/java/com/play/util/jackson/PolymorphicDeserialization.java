@@ -17,6 +17,7 @@ public class PolymorphicDeserialization {
         ObjectMapper mapper = new ObjectMapper();
         String json = "[" +
                 "{\"name\":\"Ferrari\",\"vehicleType\":\"CAR\",\"sunRoof\":false}," +
+                "{\"name\":\"Fake Ferrari\",\"vehicleType\":\"CAR2\",\"sunRoof\":false}," +
                 "{\"name\":\"Boeing 750\",\"vehicleType\":\"PLANE\",\"wingspan\":19.25}," +
                 "{\"name\":\"Tata\",\"vehicleType\":\"TRUCK\", \"numOfWheels\":8 }" +
                 "]";
@@ -31,30 +32,31 @@ public class PolymorphicDeserialization {
         System.out.println(jsonOfVehicles);
 
     }
-
-
-
-
 }
 
 
 enum VehicleType {
-    Car,
-    Plane,
+    CAR,
+    CAR2,
+    PLANE,
     TRUCK
 }
 
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME,
-        property = "vehicleType")
+        property = "vehicleType", visible = true)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Car.class, name = "CAR"),
+        @JsonSubTypes.Type(value = Car.class, name = "CAR2"),
         @JsonSubTypes.Type(value = Plane.class, name = "PLANE"),
         @JsonSubTypes.Type(value = Truck.class, name = "TRUCK")
 })
-interface Vehicle {
-    VehicleType getVehicleType();
-    String getName();
+@Getter
+@Setter
+abstract class Vehicle {
+    private VehicleType vehicleType;
+
+    abstract String getName();
 }
 
 
@@ -62,14 +64,9 @@ interface Vehicle {
 @NoArgsConstructor
 @Getter
 @Setter
-class Car implements Vehicle {
+class Car extends Vehicle {
     private boolean sunRoof;
     private String name;
-
-    @Override
-    public VehicleType getVehicleType() {
-        return VehicleType.Car;
-    }
 
     @Override
     public String toString() {
@@ -86,15 +83,9 @@ class Car implements Vehicle {
 @NoArgsConstructor
 @Getter
 @Setter
-class Plane implements Vehicle {
+class Plane extends Vehicle {
     private double wingspan;
     private String name;
-
-    @Override
-    public VehicleType getVehicleType() {
-        return VehicleType.Plane;
-    }
-
 
     @Override
     public String toString() {
@@ -110,15 +101,9 @@ class Plane implements Vehicle {
 @NoArgsConstructor
 @Getter
 @Setter
-class Truck implements Vehicle {
+class Truck extends Vehicle {
     private int numOfWheels;
     private String name;
-
-    @Override
-    public VehicleType getVehicleType() {
-        return VehicleType.TRUCK;
-    }
-
 
     @Override
     public String toString() {

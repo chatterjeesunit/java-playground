@@ -144,4 +144,19 @@ class CSVToJavaBeanUsingOpenCSVTest {
     }
 
 
+
+    @Test
+    void shouldBeAbleToConvertCSVWith20000Records() {
+
+        CSVToJavaBeanUsingOpenCSV<FlipkartProduct> converter =
+                new CSVToJavaBeanUsingOpenCSV<>(
+                        "csv/flipkart_com-ecommerce_sample.csv", ',', FlipkartProduct.class);
+
+
+        List<FlipkartProduct> results = converter.convert();
+
+        assertThat(results.size()).isEqualTo(20000);
+
+        System.out.println(results.get(0));
+    }
 }

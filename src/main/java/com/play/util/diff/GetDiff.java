@@ -48,8 +48,8 @@ public class GetDiff {
 
 
 
-        System.out.println("\n\n******** Apache Commons 3 Generic Diff ***********");
-        getDiffGenericUsingApacheCommons(d1, d2);
+//        System.out.println("\n\n******** Apache Commons 3 Generic Diff ***********");
+//        getDiffGenericUsingApacheCommons(d1, d2);
 
     }
 
@@ -80,6 +80,14 @@ public class GetDiff {
         Diff diff1 = javers.compare(d1, d2);
 
         System.out.println("\n\n" + diff1);
+
+        System.out.println("\n\n" + diff1.changesSummary());
+        System.out.println("\n\n" + diff1.prettyPrint());
+        System.out.println("\n\n" + diff1.countByType());
+//        System.out.println("\n\n" + diff1.getChanges());
+//        System.out.println("\n\n" + diff1.getPropertyChanges("productName"));
+
+
     }
 
 

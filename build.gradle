@@ -10,11 +10,14 @@ buildscript {
 }
 
 apply plugin: 'java'
+//apply plugin: 'scala'
 apply plugin: 'idea'
 
 sourceCompatibility = 1.11
 targetCompatibility = 1.11
 
+//apply plugin: 'application'
+//mainClassName = 'com.app.file.FileApplication' //For Testing File Application.
 repositories {
     mavenCentral()
 }
@@ -22,7 +25,18 @@ repositories {
 
 dependencies {
     compile files('lib/algs4.jar')
+    compile files('/home/sunitc/Tools/jdk1.8.0_91/jre/lib/rt.jar')
+    compile "joda-time:joda-time:2.2"
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.4.RELEASE'
+
     compile group: 'org.json', name: 'json', version: '20160810'
+
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.5'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.5'
+
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17'
+
+
     compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
 
     compile group:'com.fasterxml.jackson.dataformat', name:'jackson-dataformat-csv', version:'2.8.8'
@@ -33,20 +47,27 @@ dependencies {
     compile group: 'biz.paluch.redis', name: 'lettuce', version: '4.4.4.Final'
     compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
 
+    compile group: 'org.apache.commons', name: 'commons-pool2', version: '2.5.0'
+
+
     compile group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.335'
+
+
+
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8'
+
+    compile group: 'org.apache.poi', name: 'poi', version: '4.1.0'
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.0'
+
+    compile group: 'com.google.guava', name: 'guava', version: '28.1-jre'
+
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
 
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
-    compile group: 'org.javers', name: 'javers-core', version: '5.6.3'
-
-    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.0'
-
-    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
-    compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.1'
-    compile group: 'com.sun.xml.bind', name: 'jaxb-core', version: '2.3.0'
     compile group: 'com.opencsv', name: 'opencsv', version: '5.2'
-
+    compile group: 'org.javers', name: 'javers-core', version: '5.9.1'
 
     compile 'io.jsonwebtoken:jjwt-api:0.11.2'
     runtime 'io.jsonwebtoken:jjwt-impl:0.11.2'
@@ -68,8 +89,8 @@ dependencies {
 
 
 jar {
-    archiveBaseName = 'java-playground'
-    archiveVersion =  '1.0.0'
+    baseName = 'java-playground'
+    version =  '1.0.0'
 }
 
 test {

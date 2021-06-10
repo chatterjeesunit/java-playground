@@ -17,7 +17,7 @@ import java.util.stream.Stream;
  *
  * Check Test - CsvToBeanWithCsvMapperTest.java, for more details on how to use this class and creating converters, etc
  *
- * To understand how this works check out this blog - https://developerpod.com/2020/05/31/read-csv-file-to-java-bean-using-open-csv/
+ * To understand how this works check out this blog - https://sunitc.dev/2020/05/31/read-csv-file-to-java-bean-using-open-csv/
  */
 
 public class CSVToJavaBeanUsingOpenCSV<T> {

@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * Code for the blog - https://developerpod.com/2020/08/17/working-with-jwt-json-web-tokens/#toc
+ * Code for the blog - https://sunitc.dev/2020/08/17/working-with-jwt-json-web-tokens/#toc
  */
 public class JWTDemo {
 

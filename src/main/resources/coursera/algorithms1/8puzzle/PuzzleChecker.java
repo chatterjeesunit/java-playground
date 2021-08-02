@@ -25,8 +25,8 @@
  *
  ******************************************************************************/
 
-import com.play.coursera.algorithmsOne.week4a.assignment.Board;
-import com.play.coursera.algorithmsOne.week4a.assignment.Solver;
+import com.play.ds_algo.coursera.algorithms_1.week4a.assignment.Board;
+import com.play.ds_algo.coursera.algorithms_1.week4a.assignment.Solver;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 

@@ -1,7 +1,8 @@
-package com.play.ds_algo.practice.strings;
+package com.play.ds_algo.practice.arrays_strings;
+
+import java.util.Arrays;
 
 /*
- From - Cracking the Coding Interview - Gayle Laakman McDowell
  Arrays & Strings 1.1
 
  Implement an algorithm to determine if a string has all unique characters.
@@ -43,6 +44,35 @@ public class UniqueCharactersInString {
         }
 
         return isUnique;
+    }
+
+
+    /**
+     * Second way to solve this
+     *  - sort the string
+     *  - traverse the string and break if any consecutive same characters found - which means non unique
+     *
+     *  Time Complexity - O(n log n) for sorting, and O(n) for traversal ==> O(n log n)
+     *  Space complexity - O(n) , as will need extra space to store string as array
+     * @param input
+     * @return
+     */
+    public boolean checkIfStringHasUniqueCharsUsingSort(String input) {
+
+        char[] charArray = input.toCharArray();
+        Arrays.sort(charArray);
+
+        int prevChar = -1;
+        boolean isUnique = true;
+        for (int i = 0; i < charArray.length; i++) {
+            if(charArray[i] == prevChar) {
+                isUnique = false;
+                break;
+            }
+            prevChar = charArray[i];
+        }
+        return isUnique;
+
     }
 
 

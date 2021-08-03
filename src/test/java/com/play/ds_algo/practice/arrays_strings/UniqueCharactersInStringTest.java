@@ -1,4 +1,4 @@
-package com.play.ds_algo.practice.strings;
+package com.play.ds_algo.practice.arrays_strings;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -31,6 +31,32 @@ public class UniqueCharactersInStringTest {
         })
         void shouldReturnFalseForNonUniqueStrings(String input) {
             assertThat(testCls.checkIfStringHasUniqueChars(input)).isFalse();
+        }
+
+    }
+
+
+    @Nested
+    class TestUsingMethodTwo {
+        @ParameterizedTest(name = "shouldReturnTrueForNonUniqueString: {0}")
+        @ValueSource(strings = {
+                "abc",
+                "defaAF",
+                "#4%25asESgl87^1-@"
+        })
+        void shouldReturnTrueForNonUniqueStrings(String input) {
+            assertThat(testCls.checkIfStringHasUniqueCharsUsingSort(input)).isTrue();
+        }
+
+
+        @ParameterizedTest(name = "shouldReturnTrueForNonUniqueString: {0}")
+        @ValueSource(strings = {
+                "abca",
+                "defaAFf",
+                "#4%25asESgl87^1-@#"
+        })
+        void shouldReturnFalseForNonUniqueStrings(String input) {
+            assertThat(testCls.checkIfStringHasUniqueCharsUsingSort(input)).isFalse();
         }
 
     }

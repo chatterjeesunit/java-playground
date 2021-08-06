@@ -1,13 +1,15 @@
-package com.play.ds_algo.practice.ds.linkedlist;
+package com.play.ds_algo.practice.data_structures.linkedlist;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
 
 @Getter
 @Setter
-public class LinkedList<T> {
+@NoArgsConstructor
+public class LinkedList<T extends Comparable<T>> {
 
     Node<T> head;
     Node<T> tail;
@@ -33,6 +35,34 @@ public class LinkedList<T> {
             }
 
         }
+    }
+
+    public void addNodeToTail(T data) {
+        Node<T> newNode = new Node(data);
+
+        if(head == null) {
+            head = newNode;
+        }
+        if(tail != null) {
+            tail.next = newNode;
+        }
+        tail = newNode;
+    }
+
+
+    public void addNodeToHead(T data) {
+        Node<T> newNode = new Node(data, head);
+        head = newNode;
+    }
+
+    public LinkedList<T> reverse() {
+        LinkedList<T> result = new LinkedList<>();
+        Node<T> currentNode = this.getHead();
+        while(currentNode != null) {
+            result.addNodeToHead(currentNode.getData());
+            currentNode = currentNode.getNext();
+        }
+        return result;
     }
 
     @Override
@@ -75,4 +105,5 @@ public class LinkedList<T> {
 
         return true;
     }
+
 }

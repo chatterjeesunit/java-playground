@@ -1,7 +1,7 @@
 package com.play.ds_algo.practice.linkedlists;
 
-import com.play.ds_algo.practice.ds.linkedlist.LinkedList;
-import com.play.ds_algo.practice.ds.linkedlist.Node;
+import com.play.ds_algo.practice.data_structures.linkedlist.LinkedList;
+import com.play.ds_algo.practice.data_structures.linkedlist.Node;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,7 +12,7 @@ import java.util.Set;
  * Write code to remove duplicates from an unsorted linked list.
  * How would you solve this problem if a temporary buffer is not allowed?
  */
-public class RemoveDuplicates<T> {
+public class RemoveDuplicates<T extends Comparable<T>> {
 
     /**
      * Parse through the linked list once.

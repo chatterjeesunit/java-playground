@@ -1,6 +1,6 @@
 package com.play.ds_algo.practice.linkedlists;
 
-import com.play.ds_algo.practice.ds.linkedlist.Node;
+import com.play.ds_algo.practice.data_structures.linkedlist.Node;
 
 /**
  * Linked List 2.3
@@ -14,7 +14,7 @@ import com.play.ds_algo.practice.ds.linkedlist.Node;
  *
  * Assumption - you dont have access to head or tail of the linked list, and you just have access to the node to be deleted
  */
-public class DeleteMiddleNode<T> {
+public class DeleteMiddleNode<T extends Comparable<T>> {
 
 
     /**

@@ -1,7 +1,7 @@
 package com.play.ds_algo.practice.linkedlists;
 
-import com.play.ds_algo.practice.ds.linkedlist.LinkedList;
-import com.play.ds_algo.practice.ds.linkedlist.Node;
+import com.play.ds_algo.practice.data_structures.linkedlist.LinkedList;
+import com.play.ds_algo.practice.data_structures.linkedlist.Node;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

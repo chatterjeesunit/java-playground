@@ -27,7 +27,10 @@ public class Palindrome<T extends Comparable<T>> {
      *
      */
     public boolean checkIfPalindromeUsingListReversal(LinkedList<T> input) {
-        if(input == null || input.getHead() == input.getTail()) {
+        if(input == null || input.getHead() == null) {
+            return false;
+        }
+        if(input.getHead().getNext() == null) {
             return true;
         }
 
@@ -60,7 +63,10 @@ public class Palindrome<T extends Comparable<T>> {
      *
      */
     public boolean checkIfPalindromeUsingStack(LinkedList<T> input) {
-        if(input == null || input.getHead().getNext() == null) {
+        if(input == null || input.getHead() == null) {
+            return false;
+        }
+        if(input.getHead().getNext() == null) {
             return true;
         }
 
@@ -107,7 +113,10 @@ public class Palindrome<T extends Comparable<T>> {
      *
      */
     public boolean checkIfPalindromeUsingRecursion(LinkedList<T> input) {
-        if(input == null || input.getHead().getNext() == null) {
+        if(input == null || input.getHead() == null) {
+            return false;
+        }
+        if(input.getHead().getNext() == null) {
             return true;
         }
 

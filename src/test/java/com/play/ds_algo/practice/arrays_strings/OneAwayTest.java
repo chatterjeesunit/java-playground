@@ -13,6 +13,7 @@ class OneAwayTest {
     @CsvSource(value = {
             "pale,ple",
             "pales,pale",
+            "pale,pales",
             "pale,bale"
     })
     void shouldReturnTrueForStringsThatAreOneEditAway(String str1, String str2) {
@@ -27,6 +28,7 @@ class OneAwayTest {
     @CsvSource(value = {
             "pale,bake",
             "pale,ble",
+            "ble,pale",
             "cde,aacde",
             "cde,cdefg",
             "cde,dec"

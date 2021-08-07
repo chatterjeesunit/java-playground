@@ -7,7 +7,6 @@ import lombok.Setter;
 import java.util.List;
 
 @Getter
-@Setter
 @NoArgsConstructor
 public class LinkedList<T extends Comparable<T>> {
 
@@ -53,6 +52,10 @@ public class LinkedList<T extends Comparable<T>> {
     public void addNodeToHead(T data) {
         Node<T> newNode = new Node(data, head);
         head = newNode;
+
+        if(tail == null) {
+            tail = newNode;
+        }
     }
 
     public LinkedList<T> reverse() {

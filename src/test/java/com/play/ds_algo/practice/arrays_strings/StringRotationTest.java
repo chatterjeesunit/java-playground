@@ -19,4 +19,24 @@ class StringRotationTest {
         assertThat(result).isTrue();
     }
 
+    @Test
+    void shouldReturnFalseIfOneStringIsNotRotationOfOther() {
+        String s1 = "waterbottle";
+        String s2 = "erbottlewtt";
+
+        boolean result = testCls.solve(s1, s2);
+
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    void shouldReturnFalseIfStringLengthsAreNotSame() {
+        String s1 = "water";
+        String s2 = "terwaterwa";
+
+        boolean result = testCls.solve(s1, s2);
+
+        assertThat(result).isFalse();
+    }
+
 }

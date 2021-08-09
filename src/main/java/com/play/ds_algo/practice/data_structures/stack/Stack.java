@@ -2,9 +2,14 @@ package com.play.ds_algo.practice.data_structures.stack;
 
 import java.util.Arrays;
 
+/**
+ * Implementing Stack using Arrays
+ *
+ * @param <T>
+ */
 public class Stack<T> {
     private Object[] dataArray;
-    private int length = -1;
+    private int lastElementIndex = -1;
     private int capacity;
 
     public Stack(final int size) {
@@ -13,11 +18,11 @@ public class Stack<T> {
     }
 
     public void push(T data) {
-        length++;
-        if(length >= capacity) {
+        lastElementIndex++;
+        if(lastElementIndex >= capacity) {
             resize();
         }
-        dataArray[length] = data;
+        dataArray[lastElementIndex] = data;
     }
 
     private void resize() {
@@ -27,23 +32,27 @@ public class Stack<T> {
 
     public T pop() {
         T data = peek();
-        dataArray[length] = null;
-        length--;
+        dataArray[lastElementIndex] = null;
+        lastElementIndex--;
         return data;
     }
 
     public T peek() {
-        if(length < 0) {
+        if(isEmpty()) {
             throw new RuntimeException("Stack is Empty");
         }
-        return (T)dataArray[length];
+        return (T)dataArray[lastElementIndex];
     }
 
     public int length() {
-        return length + 1;
+        return lastElementIndex + 1;
     }
 
     public int getCapacity() {
         return capacity;
+    }
+
+    public boolean isEmpty() {
+        return lastElementIndex < 0;
     }
 }

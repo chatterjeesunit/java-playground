@@ -3,9 +3,21 @@ package com.play.ds_algo.practice.data_structures.stack;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class StackTest {
+
+    @Test
+    void shouldReturnTrueIfStackIsEmpty() {
+        Stack<Character> stack = new Stack<>(5);
+        assertThat(stack.isEmpty()).isTrue();
+
+        stack.push('A');
+        assertThat(stack.isEmpty()).isFalse();
+
+        stack.pop();
+        assertThat(stack.isEmpty()).isTrue();
+    }
 
     @Test
     void shouldBeAbleToPushDataToStack() {
@@ -41,7 +53,7 @@ class StackTest {
 
 
     @Test
-    void shouldBeAbleToPopElementFromStack() {
+    void shouldBeAbleToPopElementFromStackInLIFO() {
 
         Stack<Character> stack = new Stack<>(5);
 
@@ -97,9 +109,6 @@ class StackTest {
         stack.push('B');
         stack.push('C');
 
-        assertThat(stack.length()).isEqualTo(3);
-
-        assertThat(stack.peek()).isEqualTo('C');
         assertThat(stack.length()).isEqualTo(3);
 
         assertThat(stack.peek()).isEqualTo('C');

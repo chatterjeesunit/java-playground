@@ -1,6 +1,5 @@
 package com.play.ds_algo.practice.data_structures.tree;
 
-import edu.princeton.cs.algs4.In;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -346,95 +345,6 @@ class BSTNodeTest {
             BSTNode<Integer> treeAfterDeletion = tree.deleteNode(25);
             assertThat(treeAfterDeletion).isEqualTo(expectedTree);
         }
-    }
-
-
-
-    @Nested
-    class Equality {
-
-        @Test
-        void shouldReturnTrueForIfOneNodeTreeAreEqual() {
-            BSTNode<Integer> tree1 = new BSTNode<>(5);
-            BSTNode<Integer> tree2 = new BSTNode<>(5);
-
-            boolean areTreeSame = BSTNode.isEqual(tree1, tree2);
-            assertThat(areTreeSame).isTrue();
-
-        }
-
-        @Test
-        void shouldReturnFalseForIfRootNodeAreNotSame() {
-            BSTNode<Integer> tree1 = new BSTNode<>(5);
-            BSTNode<Integer> tree2 = new BSTNode<>(4);
-
-            boolean areTreeSame = BSTNode.isEqual(tree1, tree2);
-
-            assertThat(areTreeSame).isFalse();
-
-        }
-
-        @Test
-        void shouldReturnFalseForIfTreeAreOfDifferentTypes() {
-            BSTNode<Integer> tree1 = new BSTNode<>(Integer.valueOf(5));
-            BSTNode<Float> tree2 = new BSTNode<>(Float.valueOf(5));
-
-            boolean areTreeSame = BSTNode.isEqual(tree1, tree2);
-
-            assertThat(areTreeSame).isFalse();
-
-        }
-
-
-        @Test
-        void shouldReturnTrueIfTreesAreActuallySame() {
-            BSTNode<Integer> tree1 = new BSTNode<>(5);
-            tree1.addNode(10);
-            tree1.addNode(15);
-            tree1.addNode(12);
-            tree1.addNode(4);
-            tree1.addNode(9);
-            tree1.addNode(1);
-
-
-            BSTNode<Integer> tree2 = new BSTNode<>(5);
-            tree2.addNode(10);
-            tree2.addNode(15);
-            tree2.addNode(4);
-            tree2.addNode(9);
-            tree2.addNode(12);
-            tree2.addNode(1);
-
-            boolean areTreeSame = BSTNode.isEqual(tree1, tree2);
-            assertThat(areTreeSame).isTrue();
-
-        }
-
-
-        @Test
-        void shouldReturnTrueIfTreesAreNotSame() {
-            BSTNode<Integer> tree1 = new BSTNode<>(5);
-            tree1.addNode(10);
-            tree1.addNode(15);
-            tree1.addNode(12);
-            tree1.addNode(4);
-            tree1.addNode(9);
-            tree1.addNode(1);
-
-
-            BSTNode<Integer> tree2 = new BSTNode<>(5);
-            tree2.addNode(10);
-            tree2.addNode(12);
-            tree2.addNode(4);
-            tree2.addNode(9);
-            tree2.addNode(1);
-            tree2.addNode(15);
-
-            boolean areTreeSame = BSTNode.isEqual(tree1, tree2);
-            assertThat(areTreeSame).isFalse();
-
-        }
-
     }
 
 }

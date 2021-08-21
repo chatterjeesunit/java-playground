@@ -46,7 +46,7 @@ public class RemoveDuplicates<T extends Comparable<T>> {
 
     /**
      * Parse through the linked list once.
-     * For each element of linked list check if this element has occured anywhere in the linked list again
+     * For each element of linked list check if this element has occurred anywhere in the linked list again
      * If yes delete all occurences
      * Repeat this process for each element of linked list.
      *

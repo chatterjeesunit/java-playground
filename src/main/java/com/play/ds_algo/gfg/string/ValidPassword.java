@@ -1,8 +1,5 @@
-package com.play.ds_algo.gfg.practice;
+package com.play.ds_algo.gfg.string;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**

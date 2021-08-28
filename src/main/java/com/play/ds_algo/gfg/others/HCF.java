@@ -1,4 +1,4 @@
-package com.play.ds_algo.gfg.practice;
+package com.play.ds_algo.gfg.others;
 
 public class HCF {
 

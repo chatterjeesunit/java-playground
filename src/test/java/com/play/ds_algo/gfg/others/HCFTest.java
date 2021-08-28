@@ -1,4 +1,4 @@
-package com.play.ds_algo.gfg.practice;
+package com.play.ds_algo.gfg.others;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

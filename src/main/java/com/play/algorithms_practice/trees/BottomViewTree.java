@@ -1,7 +1,6 @@
 package com.play.algorithms_practice.trees;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import com.play.data_structures.tree.TreeNode;
 
 import java.util.*;
 
@@ -37,15 +36,15 @@ import java.util.*;
 public class BottomViewTree {
 
     class NodeData {
-        Node node;
+        TreeNode<Integer> node;
         int distance;
 
-        public NodeData(Node node, int distance) {
+        public NodeData(TreeNode<Integer> node, int distance) {
             this.node = node;
             this.distance = distance;
         }
 
-        public Node getNode() {
+        public TreeNode<Integer> getNode() {
             return node;
         }
 
@@ -54,7 +53,7 @@ public class BottomViewTree {
         }
     }
 
-    public ArrayList<Integer> bottomView(Node root)
+    public ArrayList<Integer> bottomView(TreeNode<Integer> root)
     {
         Queue<NodeData> queue = new ArrayDeque<>();
         queue.add(new NodeData(root, 0));
@@ -74,29 +73,5 @@ public class BottomViewTree {
         }
 
         return new ArrayList<>(bottomViewMap.values());
-    }
-}
-
-
-@Getter
-@AllArgsConstructor
-class Node {
-    int data;
-    Node left, right;
-
-    public Node(int data) {
-        this.data = data;
-    }
-
-    public Node addLeft(int data) {
-        Node newNode = new Node(data);
-        this.left = newNode;
-        return newNode;
-    }
-
-    public Node addRight(int data) {
-        Node newNode = new Node(data);
-        this.right = newNode;
-        return newNode;
     }
 }

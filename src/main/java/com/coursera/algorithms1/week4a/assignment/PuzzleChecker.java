@@ -1,3 +1,6 @@
+
+package com.coursera.algorithms1.week4a.assignment;
+
 /******************************************************************************
  *  Compilation:  javac PuzzleChecker.java
  *  Execution:    java PuzzleChecker filename1.txt filename2.txt ...

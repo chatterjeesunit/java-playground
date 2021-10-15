@@ -1,9 +1,9 @@
-package com.corejava.multithreading.nov2017;
+package com.corejava.multithreading.creation;
 
 /**
  * Created by sunitc on 11/17/17.
  */
-public class BasicThreadCreation {
+public class ThreadCreation1 {
 
     public static class TA extends Thread {
         public TA(String name) {

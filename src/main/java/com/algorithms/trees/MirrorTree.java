@@ -4,6 +4,7 @@ import com.data_structures.tree.TreeNode;
 
 /**
  * https://practice.geeksforgeeks.org/problems/mirror-tree/1/
+ * Given a Binary Tree, convert it into its mirror.
  *
  * Example 1:
  *

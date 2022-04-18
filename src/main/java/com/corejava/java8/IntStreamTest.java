@@ -1,5 +1,8 @@
 package com.corejava.java8;
 
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 /**
  * Created by sunitc on 2/14/18.
  */
@@ -9,9 +12,9 @@ public class IntStreamTest {
         int l = 1;
         int r = 19;
 
-        int[] result = java.util.stream.IntStream.rangeClosed(l, r).filter(i -> i%2!=0).boxed().mapToInt(Integer::intValue).toArray();
+        Integer[] result = IntStream.rangeClosed(l, r).filter(i -> i % 2 != 0).boxed().toArray(Integer[]::new);
 
-        System.out.println(result );
+        System.out.println(result);
         //;
     }
 }

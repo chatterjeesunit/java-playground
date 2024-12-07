@@ -10,11 +10,10 @@ buildscript {
 }
 
 apply plugin: 'java'
-//apply plugin: 'scala'
 apply plugin: 'idea'
 
-sourceCompatibility = 1.11
-targetCompatibility = 1.11
+sourceCompatibility = 1.21
+targetCompatibility = 1.21
 
 //apply plugin: 'application'
 //mainClassName = 'com.app.file.FileApplication' //For Testing File Application.
@@ -24,54 +23,54 @@ repositories {
 
 
 dependencies {
-    compile files('lib/algs4.jar')
-    compile files('/home/sunitc/Tools/jdk1.8.0_91/jre/lib/rt.jar')
-    compile "joda-time:joda-time:2.2"
-    compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.4.RELEASE'
+    implementation files('lib/algs4.jar')
+    implementation files('/home/sunitc/Tools/jdk1.8.0_91/jre/lib/rt.jar')
+    implementation "joda-time:joda-time:2.2"
+    implementation group: 'org.springframework', name: 'spring-webmvc', version: '6.1.13'
 
-    compile group: 'org.json', name: 'json', version: '20160810'
+    implementation group: 'org.json', name: 'json', version: '20231013'
 
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.5'
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.5'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.5'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.4.2'
 
-    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17'
-
-
-    compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
-
-    compile group:'com.fasterxml.jackson.dataformat', name:'jackson-dataformat-csv', version:'2.8.8'
-    compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.6"
-
-    compile group: 'org.jsoup', name: 'jsoup', version: '1.11.2'
-
-    compile group: 'biz.paluch.redis', name: 'lettuce', version: '4.4.4.Final'
-    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
-
-    compile group: 'org.apache.commons', name: 'commons-pool2', version: '2.5.0'
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17'
 
 
-    compile group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.335'
+    implementation group: 'commons-lang', name: 'commons-lang', version: '2.6'
+
+    implementation group:'com.fasterxml.jackson.dataformat', name:'jackson-dataformat-csv', version:'2.8.8'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8'
+
+    implementation group: 'org.jsoup', name: 'jsoup', version: '1.15.3'
+
+    implementation group: 'biz.paluch.redis', name: 'lettuce', version: '4.4.4.Final'
+    implementation group: 'redis.clients', name: 'jedis', version: '2.9.0'
+
+    implementation group: 'org.apache.commons', name: 'commons-pool2', version: '2.5.0'
+
+
+    implementation group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.12.261'
 
 
 
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.8'
 
-    compile group: 'org.apache.poi', name: 'poi', version: '4.1.0'
-    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.0'
+    implementation group: 'org.apache.poi', name: 'poi', version: '4.1.1'
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.0'
 
-    compile group: 'com.google.guava', name: 'guava', version: '28.1-jre'
+    implementation group: 'com.google.guava', name: 'guava', version: '32.0.0-android'
 
-    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
 
-    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
-    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
-    compile group: 'com.opencsv', name: 'opencsv', version: '5.2'
-    compile group: 'org.javers', name: 'javers-core', version: '5.9.1'
+    implementation group: 'com.opencsv', name: 'opencsv', version: '5.2'
+    implementation group: 'org.javers', name: 'javers-core', version: '5.9.1'
 
-    compile 'io.jsonwebtoken:jjwt-api:0.11.2'
-    runtime 'io.jsonwebtoken:jjwt-impl:0.11.2'
-    runtime 'io.jsonwebtoken:jjwt-jackson:0.11.2'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.2'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.2'
     // Uncomment the next line if you want to use RSASSA-PSS (PS256, PS384, PS512) algorithms:
     //runtime 'org.bouncycastle:bcprov-jdk15on:1.60'
     // Uncomment below line if you want to use gson
@@ -81,15 +80,15 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
 
-    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.16.1'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.16.1'
 
-    testCompileOnly 'org.projectlombok:lombok:1.18.12'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testImplementation 'org.projectlombok:lombok:1.18.30'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
 }
 
 
 jar {
-    baseName = 'java-playground'
+    archiveBaseName = 'java-playground'
     version =  '1.0.0'
 }
 

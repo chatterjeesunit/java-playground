@@ -2,6 +2,9 @@ package com.corejava.multithreading.executors;
 
 import lombok.AllArgsConstructor;
 
+/**
+ * Runnable class implementation that will be used in the other executors related programs
+ */
 @AllArgsConstructor
 public class MyDummyTask implements Runnable {
     private int taskId;
@@ -18,6 +21,11 @@ public class MyDummyTask implements Runnable {
         }
         System.out.println("\t\tTaskId: " + taskId + ", Thread " + Thread.currentThread().getName() + ": Completed");
 
+    }
+
+    @Override
+    public String toString() {
+        return "Task #" + taskId;
     }
 }
 

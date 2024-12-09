@@ -1,15 +1,15 @@
-package com.corejava.multithreading.executors;
+package com.corejava.multithreading.executors.nonscheduled;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class CachedThreadPoolExecutorDemo {
+public class FixedThreadPoolExecutorDemo {
 
     public static void main(String[] args) {
 
-        ExecutorService executorService = Executors.newCachedThreadPool();
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 20; i++) {
             executorService.submit(new MyDummyTask(i));
         }
 

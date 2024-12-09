@@ -1,4 +1,4 @@
-package com.corejava.multithreading.executors;
+package com.corejava.multithreading.executors.nonscheduled;
 
 import java.util.Random;
 import java.util.concurrent.*;

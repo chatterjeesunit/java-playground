@@ -1,4 +1,4 @@
-package com.corejava.multithreading.executors;
+package com.corejava.multithreading.executors.nonscheduled;
 
 import lombok.AllArgsConstructor;
 
@@ -11,7 +11,8 @@ public class MyDummyTask implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("TaskId: " + taskId + ", Thread " + Thread.currentThread().getName() + ": Started");
+        System.out.println("TaskId: " + taskId + ", Thread "
+                + Thread.currentThread().getName() + ": Started");
 
         //Thread sleep to simulate some long task like an I/O
         try {
@@ -19,7 +20,9 @@ public class MyDummyTask implements Runnable {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("\t\tTaskId: " + taskId + ", Thread " + Thread.currentThread().getName() + ": Completed");
+
+        System.out.println("\t\tTaskId: " + taskId + ", Thread "
+                + Thread.currentThread().getName() + ": Completed");
 
     }
 

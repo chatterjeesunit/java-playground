@@ -1,4 +1,4 @@
-package com.corejava.multithreading.executors;
+package com.corejava.multithreading.executors.nonscheduled;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
